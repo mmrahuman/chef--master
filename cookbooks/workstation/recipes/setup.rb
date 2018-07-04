@@ -13,6 +13,9 @@ end
 
 template '/etc/motd' do
 	source 'motd.erb'
+	variables(
+	 :name => 'roguetech'
+	)
 	action :create
 end
 

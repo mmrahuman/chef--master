@@ -2,10 +2,11 @@ package 'httpd' do
 	action :install
 end
 
-file '/var/www/html/index.html' do
-	content "<h1>Hello, World</h1>
-	<p>ipaddress = #{node['ipaddress']}</p>
-	<p>hostname = #{node['hostname']}</p>"
+template '/var/www/html/index.html' do
+	source 'index.html.erb'
+	variables(
+		:servername => 'roguetech' )
+	action :create
 end
 
 service 'httpd' do
