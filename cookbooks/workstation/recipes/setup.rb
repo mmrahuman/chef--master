@@ -11,16 +11,9 @@ package 'ntp' do
 	action :install
 end
 
-file '/etc/motd' do
-	content "This server details are:
-	HOSTNAME: #{node['hostname']}
-	IPADDRESS: #{node['ipaddress']}
-	CPU: #{node['cpu']['0']['mhz']}
-	MEMORY: #{node['memory']['total']}
-	"
+template '/etc/motd' do
+	source 'motd.erb'
 	action :create
-	owner 'root'
-	group 'root'
 end
 
 service 'ntpd' do
