@@ -1,6 +1,6 @@
 #
-# Cookbook:: workstation
+# Cookbook:: build_cookbook
 # Recipe:: default
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
-include_recipe 'workstation::setup'
+include_recipe 'delivery-truck::default'
