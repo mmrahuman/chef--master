@@ -27,7 +27,7 @@ user 'user1' do
 end
 
 group 'admins' do
-	members ['user1', 'vagrant']	
+	members ['user1']	
 	append true
 end
 

@@ -3,8 +3,11 @@
 # before, :delayed, :immediately
 #
 
-package 'httpd' do
+if host[platform] == 'centos' do
+
+ package 'httpd' do
 	action :install
+ end
 end
 
 cookbook_file 'var/www/html/example.html' do
@@ -20,7 +23,7 @@ template '/var/www/html/index.html' do
 	variables(
 		:servername => 'roguetech' )
 	action :create
-	#notifies :restart, 'service[httpd]', :immediately
+	notifies :restart, 'service[httpd]', :immediately
 end
 
 #bash "inline script" do
@@ -47,5 +50,5 @@ end
 
 service 'httpd' do
 	action [ :enable, :start ]
-	subscribes :restart, 'template[/var/www/html/index.html]', :immediately
+	#subscribes :restart, 'template[/var/www/html/index.html]', :immediately
 end
