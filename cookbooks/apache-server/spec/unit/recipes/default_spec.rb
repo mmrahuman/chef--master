@@ -1,12 +1,12 @@
 #
 # Cookbook:: apache-server
-# Spec:: default
+# Spec:: test
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'apache-server::default' do
+describe 'apache-server::test' do
   context 'When all attributes are default, on Ubuntu 16.04' do
     let(:chef_run) do
       # for a complete list of available platforms and versions see:
@@ -31,5 +31,29 @@ describe 'apache-server::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+#    it 'installs the correct package' do
+#      expect(chef_run).to install_package('httpd')
+#    end
+     it 'creates an default html file' do
+       expect(chef_run).to create_template('/var/www/html/index.html')
+     end
   end
 end
+
+    
+#    it 'installs the correct package' do
+#      expect(chef_run).to install_package('httpd')
+#    end
+
+#    it 'creates an default html file' do
+#      expect(chef_run).to create_template('/var/www/html/index.html')
+#    end
+
+#    it 'starts the service' do
+#      expect(chef.run).to start_service('httpd')
+#    end
+   
+#    it 'enables the service' do
+#      expect(chef.run).to enable_service('httpd')
+#    end

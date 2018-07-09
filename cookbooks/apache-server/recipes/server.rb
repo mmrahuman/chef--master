@@ -3,12 +3,12 @@
 # before, :delayed, :immediately
 #
 
-if host[platform] == 'centos' do
+#if host[platform] == 'centos' do
 
- package 'httpd' do
+package 'httpd' do
 	action :install
- end
 end
+#end
 
 cookbook_file 'var/www/html/example.html' do
 	source 'example.html'
