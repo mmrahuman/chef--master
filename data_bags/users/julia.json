@@ -1,0 +1,10 @@
+{
+	"id":"julia",
+	"comments": "Julia Child",
+	"uid": "202",
+	"gid": "0",
+	"home": "/home/julia",
+	"shell": "/bin/bash",
+	"platform": "centos",
+	"tvshow": "baking with julia"
+}
